@@ -1,5 +1,7 @@
 # Daylight — Assetlib todo demo
 
+[Open the hosted to-do demo](https://assetlib-todo.vercel.app) · [Create an Assetlib account](https://assetlib-console.vercel.app)
+
 An original Expo app with the real [Assetlib SDK](https://github.com/AssetLib/sdk-js) already connected to three typed image placements. Add tasks, complete them, and filter your daily list. Bundled artwork keeps the app usable before you connect an account and whenever remote artwork is unavailable.
 
 This is **preview software**. The browser path is the first supported verification target. Native iOS and Android builds have not been verified; neither app-store readiness nor a clean dependency audit is claimed. Read [DEPENDENCY-REVIEW.md](DEPENDENCY-REVIEW.md) before adopting the sample.
@@ -62,7 +64,9 @@ The destinations are fictional, and this sample has no booking, synchronized tas
 
 ## Validation and limitations
 
-Verified on 2026-10-07: fresh `npm ci` from the published SDK release artifacts, code generation, typecheck, lint, web export, and Expo dependency compatibility. Across both exported demos, 39 browser checks passed against the real hosted signed release: remote image rendering, correct travel aspect ratios, public-config persistence, verified-cache status after reload, disconnect to bundled images, responsive layouts at 320/390/1440px, and zero page errors. Cache-hit checks are not a network-off test. The included CI repeats the build checks and rejects stale generated references. Native builds and publish/rollback from the public demo remain separate acceptance steps; native support in the adapter is not a substitute for a device or simulator test.
+Verified on 2026-10-07: fresh `npm ci` from the published SDK release artifacts, code generation, typecheck, lint, web export, and Expo dependency compatibility. Across both exported demos, 39 browser checks passed against the real hosted signed release: remote image rendering, correct travel aspect ratios, public-config persistence, verified-cache status after reload, disconnect to bundled images, responsive layouts at 320/390/1440px, and zero page errors. Cache-hit checks are not a network-off test. The included CI repeats the build checks and rejects stale generated references. Native builds remain unverified; native support in the adapter is not a substitute for a device or simulator test.
+
+This to-do demo is deployed with Node 22. [CI run 37711587601](https://github.com/AssetLib/demo-todo/actions/runs/37711587601) passed for commit `a17c6ef87cf15bd5e0ea212be75c54f1fe348e89`. The shared integration also passed live publish/refresh/rollback acceptance in the [travel demo](https://assetlib-travel.vercel.app): sequence 1 coast → sequence 2 Alpine weekend artwork → sequence 3 restored coast, on the same running Chrome page without rebuilding. That replacement test was performed on `travel.coast`; it is not a separate live replacement test of `tasks.garden` in this deployment.
 
 Current compatible Expo dependencies have unresolved advisories, including a router URL-decoding availability concern. No unsupported framework downgrade or speculative major dependency override was applied. See [DEPENDENCY-REVIEW.md](DEPENDENCY-REVIEW.md) for affected chains and primary advisory links. Keep the development server local; use the static export for a public preview.
 
