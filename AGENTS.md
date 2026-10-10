@@ -51,7 +51,7 @@ There are no tags or GitHub releases; `main` is the source the maintainers deplo
 
 ## Known gaps (2026-10-09; remove each line once fixed)
 
-- Live publish/refresh/rollback acceptance on SDK 0.4.0-preview.1 passed on 2026-10-09 in the travel demo, which shares this source (`travel.coast`, releases 7 and 8). No live loop has covered this app's `tasks.garden` family.
+- Live publish/refresh/rollback acceptance on SDK 0.4.0-preview.1 passed on 2026-10-09 in the travel demo, which shares this source (`travel.coast`, releases 7 and 8). On 2026-10-09 the `tasks.garden` family also passed a publish, stage switch and rollback loop against the local console: a fresh demo workspace seeded all four stages, Daylight rendered the verified `started` stage, a republished `started` stage appeared after reload, completing tasks switched to the `complete` stage from the same release, and the rollback restored the original stage.
 - Native iOS and Android builds have never been verified.
 
 ## Don'ts
