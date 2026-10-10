@@ -51,7 +51,7 @@ There are no tags or GitHub releases; `main` is the source the maintainers deplo
 
 ## Known gaps (2026-10-09; remove each line once fixed)
 
-- Live publish/refresh/rollback acceptance against a hosted signed release has not been repeated since the move to SDK 0.4.0-preview.1; the 2026-10-09 browser check stubbed delivery. The earlier live test covered `travel.coast` in the travel demo only.
+- Live publish/refresh/rollback acceptance on SDK 0.4.0-preview.1 passed on 2026-10-09 in the travel demo, which shares this source (`travel.coast`, releases 7 and 8). No live loop has covered this app's `tasks.garden` family.
 - Native iOS and Android builds have never been verified.
 
 ## Don'ts
