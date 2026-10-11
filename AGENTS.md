@@ -50,11 +50,11 @@ CI (`.github/workflows/ci.yml`, Node 24, matching `engines.node` and the Vercel 
 
 There are no tags or GitHub releases; `main` is the source the maintainers deploy. The app version lives in `package.json` (`version`) and `app.json` (`expo.version`). `vercel.json` expects `npm ci`, `npm run export:web` and output in `dist/`, with client-side routes rewritten to `index.html`; keep those working.
 
-## Known gaps (2026-10-10; remove each line once fixed)
+## Known gaps (2026-10-11; remove each line once fixed)
 
 - Live publish/refresh/rollback acceptance on SDK 0.4.0-preview.1 passed on 2026-10-09 in the travel demo, which shares this source (`travel.coast`, releases 7 and 8). On 2026-10-09 the `tasks.garden` family also passed a publish, stage switch and rollback loop against the local console: a fresh demo workspace seeded all four stages, Daylight rendered the verified `started` stage, a republished `started` stage appeared after reload, completing tasks switched to the `complete` stage from the same release, and the rollback restored the original stage.
-- `travel.save` is verified only with its bundled, tinted fallback (2026-10-10, browser check of the web export). As of 2026-10-10 the console's tintable-icon support and its demo seed are not deployed, so no live template release has been checked, and the connection screen does not list `travel.save` yet; add it there once the hosted demo workspace seeds it.
-- Native iOS and Android builds have never been verified.
+- `travel.save` is verified only with its bundled, tinted fallback (2026-10-10, browser check of the web export). The console's tintable-icon support and its demo seed were released on 2026-10-10 and the connection screen lists `travel.save`, but the hosted demo workspace's release 8 (current on 2026-10-11) does not carry it, so no live template release has been checked in this app.
+- Native iOS: on 2026-10-11 a Release build ran on an iOS 27.0 simulator only with `plugins/with-ios-scene-lifecycle.js` (without it UIKit stops the app at launch). It opened on Tasks with the bundled garden and verified the hosted demo workspace's release 8, which carries `tasks.garden` as a single legacy image, so the bundled four-stage family stays in place by design. The public config was written to the app's storage before launch rather than pasted, and the Connect screen was not opened on the simulator. Offline launches, a publish and restore on the installed build, a published garden stage drawn on iOS, and a physical device have not been run. Remove the plugin when the app moves to an Expo SDK whose template adopts scenes. Android native builds have never been verified.
 
 ## Don'ts
 
