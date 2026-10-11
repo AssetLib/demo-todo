@@ -32,6 +32,7 @@ CI (`.github/workflows/ci.yml`, Node 24, matching `engines.node` and the Vercel 
 - `assets/`: bundled fallbacks. `assets/source/*.svg` are the originals; regenerate PNGs with `npm run assets:generate` (which also draws the 72 × 72 `save-icon.png` mask) and `node scripts/generate-progress-assets.mjs`.
 - `vendor/`: the `@assetlib/sdk-core` and `@assetlib/sdk-expo` 0.5.0-preview.1 tarballs from the sdk-js `v0.5.0-preview.1` GitHub release, unchanged, and that release's `SHA256SUMS` lines for them (`vendor/README.md` has the update steps).
 - `scripts/preview.py`: loopback static server with a hard-coded route list. Add new routes there too.
+- `plugins/with-ios-scene-lifecycle.js`: config plugin that gives the generated iOS project the UIScene life cycle the iOS 27 SDK requires (Expo SDK 57's template lacks it). It fails prebuild loudly if the template's AppDelegate changes shape. Build iOS with `npx expo prebuild --platform ios`, then `pod install` and `xcodebuild` (or `npx expo run:ios`); never edit `ios/` by hand.
 
 ## Invariants
 
